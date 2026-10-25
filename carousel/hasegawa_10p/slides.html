@@ -24,7 +24,7 @@
   .bg { position: absolute; inset: 0; width: 100%; height: 100%; }
   /* 写真を使うときは photo/pXX.jpg を置くと背景に敷かれる */
   .photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
-  .veil { position: absolute; inset: 0; background: rgba(248, 243, 234, .38); }
+  .veil { position: absolute; inset: 0; }
   .abs { position: absolute; }
   .stack { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
   .pill {
@@ -84,7 +84,7 @@
 </svg>
 
 <!-- 1P 表紙 -->
-<section class="slide" data-bg="desk">
+<section class="slide" data-bg="desk" data-veil=".15">
   <div class="stack" style="top:440px;">
     <div class="pill b" style="font-size:46px;">本音が分からない人へ</div>
     <div class="pill g" style="font-size:76px;">「どうしたい？」に</div>
@@ -249,7 +249,7 @@
     const n = String(i + 1).padStart(2, '0');
     s.insertAdjacentHTML('afterbegin',
       `<svg class="bg" viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid slice"><g filter="url(#soft)">${scenes[s.dataset.bg]}</g><rect width="1080" height="1350" filter="url(#grain)"/></svg>` +
-      `<div class="photo" style="background-image:url('photo/p${n}.jpg')"></div><div class="veil"></div>`);
+      `<div class="photo" style="background-image:url('photo/p${n}.jpg')"></div><div class="veil" style="background:rgba(248,243,234,${s.dataset.veil || .35})"></div>`);
     s.insertAdjacentHTML('beforeend', '<div class="brand">さやか ／ 頑張らない引き寄せ</div>');
   });
 
