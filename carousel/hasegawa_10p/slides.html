@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>長谷川さんカルーセル10P</title>
+<link rel="stylesheet" href="node_modules/@fontsource/noto-sans-jp/700.css">
+<link rel="stylesheet" href="node_modules/@fontsource/noto-sans-jp/800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/noto-sans-jp/900.css">
+<style>
+  :root {
+    --base: #F7F1E8;   /* 生成り */
+    --main: #C97B8E;   /* ダスティピンク */
+    --deep: #5C3A44;   /* 濃いダスティローズ（文字） */
+    --pale: #EBDDDA;   /* 薄いピンク */
+    --sub:  #B7A4C4;
+    --gold: #C9A24D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #ddd; font-family: 'Noto Sans JP', sans-serif; }
+  .slide {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    background: var(--base); color: var(--deep); margin: 0 auto 40px;
+    font-weight: 700; letter-spacing: 0.02em;
+  }
+  .paper { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .abs { position: absolute; }
+  .h { font-weight: 900; line-height: 1.32; letter-spacing: 0.01em; }
+  .center { text-align: center; left: 0; right: 0; }
+
+  /* 常設タグ（右上） */
+  .tag {
+    position: absolute; top: 44px; right: 44px; z-index: 5;
+    display: flex; align-items: center; gap: 12px;
+    background: var(--pale); border-radius: 999px; padding: 12px 30px 12px 18px;
+    font-size: 30px; font-weight: 800; line-height: 1;
+  }
+  .tag svg { width: 54px; height: 54px; }
+
+  /* 保存表示（右下） */
+  .save {
+    position: absolute; right: 44px; bottom: 44px; z-index: 5;
+    display: flex; align-items: center; gap: 14px;
+    background: var(--deep); color: var(--base); border-radius: 999px;
+    padding: 16px 36px 16px 26px; font-size: 34px; font-weight: 900; line-height: 1;
+    box-shadow: 0 6px 0 rgba(92,58,68,.18);
+  }
+  .save svg { width: 52px; height: 52px; }
+
+  .band { position: absolute; left: 0; right: 0; bottom: 0; }
+  .card {
+    background: var(--base); border-radius: 28px; color: var(--deep);
+    box-shadow: 0 8px 0 rgba(92,58,68,.12);
+  }
+  .mark { background: linear-gradient(transparent 62%, rgba(201,123,142,.45) 62%); padding: 0 4px; }
+  .lab {
+    display: inline-block; background: var(--deep); color: var(--base);
+    border-radius: 12px; padding: 2px 16px; margin-right: 10px; font-weight: 900;
+  }
+</style>
+</head>
+<body>
+
+<!-- 共通の定義（水彩のにじみ・紙の質感） -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="wc" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="1.1"/>
+    </filter>
+    <filter id="wash" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="60" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="5"/>
+    </filter>
+    <filter id="paperf">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0.36  0 0 0 0 0.23  0 0 0 0 0.27  0 0 0 0.07 0"/>
+    </filter>
+    <symbol id="i-tag" viewBox="0 0 64 64">
+      <path d="M34 8c-3-5-11-3-10 3 1 5 10 10 10 10s9-5 10-10c1-6-7-8-10-3z" fill="#C97B8E"/>
+      <path d="M8 34c6 0 9 4 12 8h14c3 0 4 4 0 5H24m-4 0c9 5 18 7 27 3l11-8c3-2 1-6-3-5l-11 5" fill="none" stroke="#5C3A44" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 30v26" stroke="#5C3A44" stroke-width="3.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-bookmark" viewBox="0 0 64 64">
+      <path d="M18 8h28v48L32 45 18 56z" fill="none" stroke="#F7F1E8" stroke-width="4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-ribbon" viewBox="0 0 64 64">
+      <path d="M8 14c8-4 16-4 24 2 8-6 16-6 24-2v38c-8-4-16-4-24 2-8-6-16-6-24-2z" fill="none" stroke="#F7F1E8" stroke-width="3.6" stroke-linejoin="round"/>
+      <path d="M32 16v38" stroke="#F7F1E8" stroke-width="3.6"/>
+      <path d="M40 10v20l5-4 5 4V10" fill="#C97B8E" stroke="#F7F1E8" stroke-width="2.4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-tap" viewBox="0 0 64 64">
+      <path d="M26 30V14a4 4 0 0 1 8 0v16m0-2a4 4 0 0 1 8 0v4m0-2a4 4 0 0 1 8 0v10c0 10-6 16-15 16h-2c-6 0-9-3-12-8l-6-10c-2-3 2-6 5-3l6 6V30" fill="none" stroke="#F7F1E8" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 8l4 4M30 2v5M42 8l-4 4" stroke="#C97B8E" stroke-width="3.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-saved" viewBox="0 0 64 64">
+      <path d="M18 8h28v48L32 45 18 56z" fill="#C97B8E" stroke="#F7F1E8" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M25 26l5 5 10-10" fill="none" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- 1P フック -->
+<section class="slide" id="p1">
+  <div class="abs center h" style="top:250px; line-height:1;">
+    <span style="font-size:430px; letter-spacing:-0.04em;">27</span><span style="font-size:190px;">歳</span>
+  </div>
+  <svg class="abs" style="left:390px; top:690px" width="300" height="24"><path d="M10 12 Q150 2 290 12" stroke="#C97B8E" stroke-width="10" fill="none" stroke-linecap="round" filter="url(#wc)"/></svg>
+  <div class="abs center" style="top:745px; font-size:62px; font-weight:800; line-height:1.5;">
+    頃まで、体調もお金も<br>人間関係も苦しかった
+  </div>
+  <div class="band" style="height:330px;">
+    <svg class="abs" style="top:-40px; left:0" width="1080" height="380">
+      <path d="M0 50 C200 10 360 70 560 40 S900 10 1080 45 V380 H0z" fill="#C97B8E" filter="url(#wc)"/>
+    </svg>
+    <div class="abs center" style="top:105px; display:flex; justify-content:center;">
+      <div class="card h" style="font-size:66px; padding:28px 64px;">本音が分からない人へ</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2P さらに落ちる -->
+<section class="slide" id="p2">
+  <div class="abs h" style="top:170px; left:70px; font-size:78px;">「どうしたい？」に、<br>答えられない</div>
+  <svg class="abs" style="left:905px; top:165px" width="110" height="300" viewBox="0 0 110 300">
+    <path d="M55 10 V230" stroke="#5C3A44" stroke-width="30" stroke-linecap="round"/>
+    <path d="M10 200 L55 285 L100 200z" fill="#5C3A44" stroke="#5C3A44" stroke-width="10" stroke-linejoin="round"/>
+  </svg>
+  <div class="abs" style="top:500px; left:70px; width:600px; font-size:42px; line-height:1.55;">
+    <p style="border-left:10px solid #C97B8E; padding-left:24px; margin-bottom:56px;">本当の気持ちを<br>聞かれても<br>「分からない」</p>
+    <p style="border-left:10px solid #C97B8E; padding-left:24px;">「なんで私ばっかり」と、<br>ふと虚しくなる</p>
+  </div>
+  <!-- 沈んだ水彩：ひとりのテーブルと冷めたお茶 -->
+  <svg class="abs" style="left:600px; top:520px" width="460" height="640" viewBox="0 0 460 640">
+    <ellipse cx="240" cy="330" rx="230" ry="200" fill="#B7A4C4" opacity=".28" filter="url(#wash)"/>
+    <ellipse cx="230" cy="360" rx="200" ry="46" fill="#A99A96" opacity=".75" filter="url(#wc)"/>
+    <rect x="60" y="372" width="20" height="230" fill="#A99A96" opacity=".8" filter="url(#wc)"/>
+    <rect x="380" y="372" width="20" height="230" fill="#A99A96" opacity=".8" filter="url(#wc)"/>
+    <ellipse cx="230" cy="345" rx="92" ry="20" fill="#E6DED9" filter="url(#wc)"/>
+    <path d="M170 250 h120 l-14 92 h-92z" fill="#D7CBD4" filter="url(#wc)"/>
+    <path d="M290 266 c34 0 34 48 -8 50" fill="none" stroke="#C8B8C6" stroke-width="12" filter="url(#wc)"/>
+    <ellipse cx="230" cy="252" rx="60" ry="10" fill="#B9A08F" opacity=".9"/>
+    <path d="M0 470 Q120 450 220 480" stroke="#B7A4C4" stroke-width="6" fill="none" opacity=".4" filter="url(#wc)"/>
+  </svg>
+  <div class="band" style="height:150px;">
+    <svg class="abs" style="top:-30px" width="1080" height="180"><path d="M0 40 C260 0 520 60 760 30 S1000 20 1080 40 V180 H0z" fill="#C97B8E" filter="url(#wc)"/></svg>
+  </div>
+</section>
+
+<!-- 3P 共感 -->
+<section class="slide" id="p3">
+  <div class="abs center h" style="top:165px; font-size:76px;">「いいよ」と言った帰り道</div>
+  <svg class="abs" style="left:50px; top:300px" width="980" height="700" viewBox="0 0 980 700">
+    <defs>
+      <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#D9CDE3"/><stop offset=".55" stop-color="#F0CFD3"/><stop offset="1" stop-color="#F6DEC9"/>
+      </linearGradient>
+      <clipPath id="panel"><rect width="980" height="700" rx="44"/></clipPath>
+    </defs>
+    <g clip-path="url(#panel)">
+      <rect width="980" height="700" fill="url(#dusk)"/>
+      <circle cx="760" cy="430" r="90" fill="#F3C9A6" opacity=".8" filter="url(#wash)"/>
+      <path d="M0 440 Q240 400 490 430 T980 420 V700 H0z" fill="#CDB6C2" opacity=".55" filter="url(#wc)"/>
+      <path d="M430 440 L550 440 L860 700 L120 700z" fill="#EADBD3" filter="url(#wc)"/>
+      <!-- 人物の後ろ姿（顔なし） -->
+      <g filter="url(#wc)" transform="translate(445 300)">
+        <ellipse cx="45" cy="335" rx="70" ry="14" fill="#8E6B74" opacity=".25"/>
+        <path d="M30 230 l-12 100 h16 l10 -98z" fill="#6E5059"/>
+        <path d="M58 230 l16 98 h16 l-14 -100z" fill="#6E5059"/>
+        <path d="M8 96 Q44 78 82 96 L96 240 H-6z" fill="#B86E81"/>
+        <path d="M6 104 Q-14 160 -6 214" stroke="#B86E81" stroke-width="20" fill="none" stroke-linecap="round"/>
+        <path d="M84 104 Q104 160 98 206" stroke="#B86E81" stroke-width="20" fill="none" stroke-linecap="round"/>
+        <rect x="84" y="196" width="60" height="70" rx="8" fill="#EBDDDA"/>
+        <path d="M94 200 Q114 168 134 200" stroke="#EBDDDA" stroke-width="7" fill="none"/>
+        <path d="M120 196 l10 -30 M112 196 l2 -26" stroke="#9DB08A" stroke-width="7"/>
+        <rect x="36" y="74" width="18" height="22" fill="#D9B3A6"/>
+        <circle cx="45" cy="48" r="36" fill="#5E4248"/>
+        <circle cx="45" cy="12" r="16" fill="#5E4248"/>
+      </g>
+    </g>
+  </svg>
+  <!-- 吹き出し -->
+  <div class="abs" style="left:560px; top:340px;">
+    <div class="card h" style="font-size:58px; padding:20px 40px; border-radius:60px; position:relative;">「いいよ」
+      <svg style="position:absolute; left:40px; bottom:-38px" width="60" height="44"><path d="M4 0 L56 0 L10 40z" fill="#F7F1E8"/></svg>
+    </div>
+  </div>
+  <div class="band" style="height:320px;">
+    <svg class="abs" style="top:-30px" width="1080" height="360"><path d="M0 40 C240 10 520 60 780 30 S1000 20 1080 36 V360 H0z" fill="#C97B8E" filter="url(#wc)"/></svg>
+    <div class="abs center" style="top:58px; display:flex; justify-content:center;">
+      <div class="card" style="font-size:46px; font-weight:800; line-height:1.6; padding:28px 56px; text-align:center;">本当は断りたかったのに<br>あとで一人になって、どっと疲れる</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4P 引き -->
+<section class="slide" id="p4">
+  <div class="abs center h" style="top:190px; font-size:92px; line-height:1.35;">
+    あなたの<span style="position:relative; display:inline-block;">性格<svg style="position:absolute; left:-12px; top:22px; transform:rotate(-4deg)" width="208" height="96"><rect x="4" y="4" width="200" height="88" rx="6" fill="#C97B8E" opacity=".62" filter="url(#wc)"/></svg></span>の<br>問題ではありません
+  </div>
+  <svg class="abs" style="left:240px; top:440px" width="600" height="600"><circle cx="300" cy="300" r="250" fill="#EBDDDA" filter="url(#wash)"/></svg>
+  <div class="abs center h" style="top:440px; font-size:520px; line-height:1.1; color:#C97B8E;">？</div>
+  <div class="abs center" style="top:1025px; font-size:54px; font-weight:900;">では、何が本音を隠している？</div>
+  <div class="band" style="height:180px; background:#5C3A44; display:flex; align-items:center; justify-content:center; gap:24px; color:#F7F1E8;">
+    <span class="h" style="font-size:58px;">答えは次のページ</span>
+    <svg width="90" height="60" viewBox="0 0 90 60"><path d="M6 30 H70 M50 8 L80 30 L50 52" stroke="#F7F1E8" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- 5P 答え -->
+<section class="slide" id="p5">
+  <div class="abs h" style="top:175px; left:70px; font-size:84px;">原因は、<br>心の奥の思い込み</div>
+  <!-- 心の鎧（薄い水彩） -->
+  <svg class="abs" style="left:790px; top:170px" width="250" height="250" viewBox="0 0 250 250">
+    <g filter="url(#wc)" opacity=".7">
+      <path d="M60 40 Q125 20 190 40 L210 90 Q200 190 125 230 Q50 190 40 90z" fill="#B7A4C4" opacity=".55"/>
+      <path d="M125 30 V225" stroke="#9C88AA" stroke-width="6" opacity=".6"/>
+      <path d="M40 90 Q125 110 210 90" stroke="#9C88AA" stroke-width="6" fill="none" opacity=".6"/>
+      <path d="M125 120 c-8-12-26-6-24 6 2 10 24 22 24 22s22-12 24-22c2-12-16-18-24-6z" fill="#C97B8E"/>
+    </g>
+  </svg>
+  <div class="abs" style="top:445px; left:70px; right:70px; background:#EBDDDA; border-radius:32px; padding:44px 50px; font-size:58px; font-weight:900; line-height:1.7;">
+    <span class="mark">「ありのままでは愛されない」</span><br><span class="mark">「頑張らなければ価値がない」</span>
+  </div>
+  <div class="abs" style="top:790px; left:70px; right:70px; background:#EBDDDA; border-radius:32px; padding:40px 44px; font-size:42px; line-height:1.6;">
+    <p style="margin-bottom:30px;"><span class="lab">なぜ：</span>感じる前に「こう言えば丸く収まる」と<br>先に答えを出してしまうから</p>
+    <p><span class="lab">例：</span>嫌だったことも<br>「大したことじゃない」と流し続ける</p>
+  </div>
+  <div class="save"><svg><use href="#i-bookmark"/></svg>自分のことかも、と思ったら保存</div>
+</section>
+
+<!-- 6P 転換 -->
+<section class="slide" id="p6">
+  <div class="abs center h" style="top:165px; font-size:84px;">書き出したら、涙が出た</div>
+  <div class="abs" style="top:330px; left:50px; width:470px; height:640px; background:#E3DDD9; border-radius:36px; display:flex; align-items:center; justify-content:center;">
+    <svg class="abs" style="left:40px; top:40px" width="390" height="560"><ellipse cx="195" cy="420" rx="170" ry="110" fill="#B7A4C4" opacity=".35" filter="url(#wash)"/></svg>
+    <div class="h" style="font-size:56px; position:relative; text-align:center;">「本音が<br>分からない」</div>
+  </div>
+  <div class="abs" style="top:330px; left:560px; width:470px; height:640px; background:#F1D2D9; border-radius:36px; display:flex; align-items:center; justify-content:center;">
+    <svg class="abs" style="left:0; top:0" width="470" height="640">
+      <circle cx="380" cy="90" r="70" fill="#F7F1E8" opacity=".8" filter="url(#wash)"/>
+      <g filter="url(#wc)"><circle cx="80" cy="560" r="26" fill="#C97B8E"/><circle cx="118" cy="540" r="18" fill="#C9A24D" opacity=".8"/><circle cx="390" cy="560" r="22" fill="#C97B8E" opacity=".8"/></g>
+    </svg>
+    <div class="h" style="font-size:56px; position:relative; text-align:center;">「ああ、私、<br>こんなに<br>つらかった<br>んだ」</div>
+  </div>
+  <svg class="abs" style="left:480px; top:590px" width="120" height="120" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="58" fill="#5C3A44"/>
+    <path d="M60 92 V34 M34 56 L60 28 L86 56" stroke="#F7F1E8" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <div class="band" style="height:310px; background:#EBDDDA; display:flex; align-items:center; justify-content:center;">
+    <div style="font-size:46px; font-weight:800; line-height:1.6; text-align:center;">私の場合は、本音を書き出すことで<br>心が軽くなりました</div>
+  </div>
+</section>
+
+<!-- 7P 核心 -->
+<section class="slide" id="p7">
+  <div class="abs h" style="top:175px; left:70px; font-size:84px;">足りないのは、<br>頑張りではなく解放</div>
+  <svg class="abs" style="left:70px; top:470px" width="940" height="130"><rect x="4" y="8" width="930" height="114" rx="20" fill="#C97B8E" filter="url(#wc)"/></svg>
+  <div class="abs h" style="top:500px; left:110px; font-size:46px;">前向きに考える・願いを描く</div>
+  <svg class="abs" style="left:70px; top:640px" width="300" height="130"><rect x="4" y="8" width="290" height="114" rx="20" fill="#5C3A44" filter="url(#wc)"/></svg>
+  <div class="abs h" style="top:672px; left:400px; font-size:46px;">心の奥の気持ちをほどく</div>
+  <svg class="abs" style="left:170px; top:778px" width="100" height="80" viewBox="0 0 100 80"><path d="M50 76 V20 M24 40 L50 10 L76 40" stroke="#C97B8E" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="abs h" style="top:790px; left:290px; font-size:46px; background:#C97B8E; color:#5C3A44; border-radius:999px; padding:4px 34px;">ここを先に</div>
+  <div class="abs" style="top:920px; left:70px; right:70px; background:#EBDDDA; border-radius:32px; padding:40px 44px; font-size:40px; line-height:1.6;">
+    <p style="margin-bottom:26px;"><span class="lab">なぜ：</span>押し込めた気持ちが残ると「もっと頑張らなきゃ」になるから</p>
+    <p><span class="lab">例：</span>引き寄せを学んでも現実が変わらず「やり方が悪いのかな」と落ち込む</p>
+  </div>
+</section>
+
+<!-- 8P ステップ図 -->
+<section class="slide" id="p8">
+  <div class="abs center h" style="top:165px; font-size:76px;">3ステップで、本音に戻る</div>
+  <div class="abs" style="top:320px; left:60px; right:60px;" id="steps"></div>
+  <div class="save"><svg><use href="#i-ribbon"/></svg>この3ステップを保存</div>
+</section>
+
+<!-- 9P 実践3つ -->
+<section class="slide" id="p9">
+  <div class="abs center h" style="top:165px; font-size:88px;">今日からできる3つ</div>
+  <div class="abs" style="top:320px; left:50px; right:50px;" id="todos"></div>
+  <div class="save"><svg><use href="#i-tap"/></svg>今夜のやることリストを保存</div>
+</section>
+
+<!-- 10P CTA -->
+<section class="slide" id="p10">
+  <div class="abs center h" style="top:170px; font-size:84px;">まず、<br>心を解放することから</div>
+  <div class="abs" style="top:430px; left:90px; right:90px; font-size:44px; line-height:1.65; text-align:center;">ずっと頑張ってきたあなたに必要なのは、<br>もっと頑張ることではなく、<br>まず心を解放すること</div>
+  <svg class="abs" style="left:290px; top:700px" width="500" height="270" viewBox="0 0 500 270">
+    <ellipse cx="250" cy="140" rx="250" ry="130" fill="#EBDDDA" filter="url(#wash)"/>
+    <rect x="110" y="40" width="300" height="190" rx="22" fill="#C97B8E" transform="rotate(-7 260 135)" filter="url(#wc)"/>
+    <rect x="95" y="50" width="300" height="190" rx="22" fill="#F7F1E8" stroke="#5C3A44" stroke-width="5" transform="rotate(4 245 145)"/>
+    <path d="M245 130 c-10-15-34-8-31 8 3 13 31 28 31 28s28-15 31-28c3-16-21-23-31-8z" fill="#C97B8E" transform="rotate(4 245 145)"/>
+  </svg>
+  <svg class="abs" style="left:500px; top:965px" width="80" height="80" viewBox="0 0 80 80"><path d="M40 6 V60 M14 38 L40 70 L66 38" stroke="#5C3A44" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="abs center" style="top:1050px; display:flex; justify-content:center;">
+    <div class="h" style="font-size:50px; background:#5C3A44; color:#F7F1E8; border-radius:999px; padding:14px 56px;">続きはプロフィールのリンクから</div>
+  </div>
+  <div class="abs" style="left:60px; bottom:150px; right:60px; text-align:center; font-size:28px; font-weight:700;">個人の体験です。同じ結果をお約束するものではありません</div>
+  <div class="save"><svg><use href="#i-saved"/></svg>保存済み</div>
+</section>
+
+<script>
+  // 8P のステップ
+  const icons = {
+    note: '<rect x="30" y="18" width="80" height="104" rx="8" fill="#EBDDDA"/><rect x="30" y="18" width="80" height="104" rx="8" fill="none" stroke="#C97B8E" stroke-width="5"/><path d="M48 48h44M48 68h44M48 88h28" stroke="#C97B8E" stroke-width="5" stroke-linecap="round"/><path d="M104 96 l22 -40 8 4 -22 40 -10 6z" fill="#C9A24D"/>',
+    heart: '<path d="M70 44c-16-26-56-14-52 12 4 22 52 50 52 50s48-28 52-50c4-26-36-38-52-12z" fill="#C97B8E"/>',
+    key: '<circle cx="48" cy="70" r="26" fill="none" stroke="#C9A24D" stroke-width="10"/><path d="M72 70 h50 M108 70 v18 M94 70 v14" stroke="#C9A24D" stroke-width="10" stroke-linecap="round"/>',
+    mug: '<path d="M32 40 h64 v52 a22 22 0 0 1 -22 22 h-20 a22 22 0 0 1 -22 -22z" fill="#C97B8E" opacity=".85"/><path d="M96 54 c26 0 26 34 -2 34" fill="none" stroke="#C97B8E" stroke-width="9"/><path d="M52 30 c-6 -10 6 -14 0 -24 M72 30 c-6 -10 6 -14 0 -24" stroke="#B7A4C4" stroke-width="5" fill="none" stroke-linecap="round"/>'
+  };
+  const wc = (k, n = 140) => `<svg width="${n}" height="${n}" viewBox="0 0 140 140" style="flex:none"><circle cx="70" cy="70" r="62" fill="#EBDDDA" opacity=".8" filter="url(#wash)"/><g filter="url(#wc)">${icons[k]}</g></svg>`;
+
+  const steps = [
+    ['本音を言葉にする', '感情を書き出し、本当はどうしたかったかに気づく', 'note'],
+    ['自分を満たす', '優しい言葉と感謝を自分に向ける', 'heart'],
+    ['思い込みをほどき、未来を選ぶ', '出どころに気づいて手放し、望む未来を自分で選び始める', 'key'],
+  ];
+  document.getElementById('steps').innerHTML = steps.map(([t, d, ic], i) => `
+    <div style="display:flex; gap:30px; align-items:flex-start; height:${i < 2 ? 290 : 250}px; position:relative;">
+      <div style="flex:none; width:120px; display:flex; flex-direction:column; align-items:center;">
+        <div class="h" style="width:120px; height:120px; border-radius:50%; background:#5C3A44; color:#F7F1E8; font-size:72px; display:flex; align-items:center; justify-content:center; line-height:1;">${i + 1}</div>
+        ${i < 2 ? '<svg width="60" height="150" viewBox="0 0 60 150"><path d="M30 10 V118 M8 96 L30 136 L52 96" stroke="#C97B8E" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}
+      </div>
+      <div style="flex:1; padding-top:6px;">
+        <div class="h" style="font-size:46px; line-height:1.3; margin-bottom:10px;">${t}</div>
+        <div style="font-size:36px; line-height:1.5;">${d}</div>
+      </div>
+      ${wc(ic, 112)}
+    </div>`).join('');
+
+  const todos = [
+    ['いちばん心が動いた場面を書く', '寝る前に、ノートに「ムカついた！」もそのまま', 'note'],
+    ['小さな選択を「どうしたい？」で決める', '飲み物・服・休むかどうかから', 'mug'],
+    ['自分に声をかける', '「今日もありがとう」「お疲れ様」<br>「大好きだよ」', 'heart'],
+  ];
+  document.getElementById('todos').innerHTML = todos.map(([t, d, ic], i) => `
+    <div style="display:flex; gap:22px; align-items:center; background:#EBDDDA; border-radius:30px; padding:28px 28px 28px 30px; margin-bottom:28px; height:262px;">
+      <div style="flex:none; display:flex; flex-direction:column; align-items:center; gap:16px;">
+        <div class="h" style="width:76px; height:76px; border-radius:50%; background:#5C3A44; color:#F7F1E8; font-size:46px; display:flex; align-items:center; justify-content:center; line-height:1;">${i + 1}</div>
+        <div style="width:64px; height:64px; border:6px solid #5C3A44; border-radius:12px; background:#F7F1E8;"></div>
+      </div>
+      <div style="flex:1;">
+        <div class="h" style="font-size:44px; line-height:1.35; margin-bottom:10px;">${t}</div>
+        <div style="font-size:36px; line-height:1.5;">${d}</div>
+      </div>
+      ${wc(ic)}
+    </div>`).join('');
+
+  // 全ページ共通：紙の質感と右上の常設タグ
+  document.querySelectorAll('.slide').forEach((s) => {
+    s.insertAdjacentHTML('afterbegin', '<svg class="paper"><rect width="100%" height="100%" filter="url(#paperf)"/></svg>');
+    s.insertAdjacentHTML('beforeend', '<div class="tag"><svg><use href="#i-tag"/></svg>自己解放×自己愛の講師</div>');
+  });
+</script>
+</body>
+</html>

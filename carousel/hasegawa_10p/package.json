@@ -1,0 +1,7 @@
+{
+  "name": "hasegawa-carousel-10p",
+  "private": true,
+  "description": "長谷川さんカルーセル10Pの画像（HTML→PNG）",
+  "scripts": { "render": "node render.js" },
+  "dependencies": { "@fontsource/noto-sans-jp": "^5.3.1" }
+}
