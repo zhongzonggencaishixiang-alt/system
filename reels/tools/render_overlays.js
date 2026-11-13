@@ -12,6 +12,15 @@ const spec = JSON.parse(fs.readFileSync(path.join(dir, 'spec.json'), 'utf8'));
 const out = path.join(dir, 'build');
 fs.mkdirSync(out, { recursive: true });
 const F = 'file://' + path.join(__dirname, 'fonts');
+// アカウントごとの見た目（2026/11/13 さやかさんのプロフィール一覧より）
+//   diet = @bonheur12101111：大きい言葉はくすみピンク／下の文字「bonheur ／ 潜在意識ダイエット」
+//   hikiyose = @sayaka_hikiyose：大きい言葉は金茶／下の文字「さやか ／ 頑張らない引き寄せ」
+const THEMES = {
+  diet: { big: '#BE8280', footer: 'bonheur ／ 潜在意識ダイエット' },
+  hikiyose: { big: '#B08A3E', footer: 'さやか ／ 頑張らない引き寄せ' },
+};
+const theme = THEMES[spec.account] || THEMES.diet;
+spec.footer = spec.footer || theme.footer;
 
 const fontCss = `
 @import url('${F}/noto-serif-jp/900.css');
@@ -65,7 +74,7 @@ function coverHtml(c) {
   .cw{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:16px}
   .bx{font-family:'Zen Maru Gothic';font-weight:700;border-radius:14px;padding:10px 30px;white-space:nowrap}
   .s{font-size:50px;color:#5C4C4A;background:rgba(250,242,238,.90)}
-  .b{font-size:96px;line-height:1.2;color:#BE8280;background:rgba(250,240,237,.90);padding:14px 36px}
+  .b{font-size:96px;line-height:1.2;color:${theme.big};background:rgba(250,240,237,.90);padding:14px 36px}
   .u{font-size:38px;color:#5C4C4A;background:rgba(255,255,255,.88);padding:8px 26px;margin-top:6px}
   .cf{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-family:'Zen Maru Gothic';font-weight:700;font-size:28px;color:#5C4C4A}
   .cf span{background:rgba(250,242,238,.9);padding:6px 22px;border-radius:12px}
