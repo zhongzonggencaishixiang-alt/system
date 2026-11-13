@@ -93,6 +93,16 @@
    ]
   },
   {
+   "kind": "pos",
+   "photo": "../library/自_夕日_海_ベランダ.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "数字に振り回されるか",
+    "味方にするか",
+    "★選ぶのはあなた★"
+   ]
+  },
+  {
    "kind": "end",
    "photo": "photo/p02_breakfast_plate.jpg",
    "seconds": 3.4,
