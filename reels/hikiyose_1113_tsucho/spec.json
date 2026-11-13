@@ -1,0 +1,111 @@
+{
+ "title": "通帳を、見るのがこわい",
+ "account": "hikiyose",
+ "cover": {
+  "photo": "../library/新_菜の花_ピンク空.jpg",
+  "small": "月末になると",
+  "big": "通帳を、\n見るのがこわい",
+  "sub": "見ないほど、ふくらむもの",
+  "seconds": 0.6
+ },
+ "slides": [
+  {
+   "kind": "pop",
+   "photo": "../library/新_菜の花_ピンク空.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "月末になると",
+    "★通帳を見るのが★",
+    "★こわい★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_ノート_電卓_ドル.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "レシートは",
+    "★見ないまま、くしゃっと★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_スマホ_手元_暗.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "「たぶん大丈夫」",
+    "そう言って",
+    "★アプリも開かない★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_女性_窓辺_モノクロ_暗.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "なのに夜になると",
+    "★なんとなく、ずっと不安★"
+   ]
+  },
+  {
+   "kind": "pop",
+   "photo": "../library/新_カーテン_窓_明.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "実は",
+    "★見ないほど★",
+    "★不安は大きくなる★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_アーチ窓_光.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "暗い部屋の物音も",
+    "電気をつけると",
+    "★こわくなくなる★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_ココア_両手.jpg",
+   "seconds": 2.8,
+   "lines": [
+    "はっきり言います。",
+    "こわいのは金額より",
+    "★「わからない」こと★"
+   ]
+  },
+  {
+   "kind": "list",
+   "photo": "../library/新_紅茶_キーボード_ピンク袖.jpg",
+   "seconds": 4.6,
+   "title": "今日できること",
+   "items": [
+    "① 今の残高を、1回だけ見る",
+    "② 「使えてよかったもの」を1つ書く"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/自_夕日_海_ベランダ.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "お金を",
+    "「こわいもの」から",
+    "★「知っているもの」へ★"
+   ]
+  },
+  {
+   "kind": "end",
+   "photo": "../library/新_パキラ_暖色.jpg",
+   "seconds": 3.0,
+   "lines": [
+    "お金の不安を",
+    "手放したいなら",
+    "★→ @sayaka_hikiyose★"
+   ]
+  }
+ ]
+}
