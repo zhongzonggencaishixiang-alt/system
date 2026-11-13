@@ -62,7 +62,7 @@ function coverHtml(c) {
   .cw{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center}
   .cb{background:rgba(252,248,240,.92);border-radius:40px;padding:50px 56px;text-align:center;max-width:960px;box-shadow:0 10px 40px rgba(60,40,30,.18)}
   .s{font-family:'Zen Maru Gothic';font-weight:700;font-size:50px;color:#5C4C4A}
-  .b{font-family:'Zen Maru Gothic';font-weight:700;font-size:108px;line-height:1.25;color:#A9844B;margin:18px 0;white-space:pre-line}
+  .b{font-family:'Zen Maru Gothic';font-weight:700;font-size:94px;line-height:1.25;color:#A9844B;margin:18px 0;white-space:pre-line}
   .u{font-family:'Zen Maru Gothic';font-weight:700;font-size:46px;color:#5C4C4A;border-top:3px solid #D9C8A8;padding-top:18px;display:inline-block}
   .cf{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-family:'Zen Maru Gothic';font-weight:700;font-size:30px;color:#5C4C4A}
   .cf span{background:rgba(252,248,240,.9);padding:8px 24px;border-radius:20px}
