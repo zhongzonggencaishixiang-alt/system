@@ -1,0 +1,108 @@
+{
+ "title": "体重が増えた朝のひと言",
+ "account": "diet",
+ "footer": "bonheur ／ 潜在意識ダイエット",
+ "cover": {
+  "photo": "photo/p12_round_window_table.jpg",
+  "small": "毎朝、体重を記録している人へ",
+  "big": "増えた朝の、\nそのひと言",
+  "sub": "③がいちばん大事",
+  "seconds": 0.6
+ },
+ "slides": [
+  {
+   "kind": "pop",
+   "photo": "photo/p16_curtain_window.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "体重が増えた朝",
+    "★「もうダメだ」★",
+    "って言ってない？"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "photo/p03_belly_hands.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "そのひと言で",
+    "★1日の食べ方★が",
+    "変わってしまう"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "photo/p04_fridge_night.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "「今日はもういいや」",
+    "夜に★まとめて食べて★",
+    "しまう"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "photo/p11_sofa_lamp_window.jpg",
+   "seconds": 2.8,
+   "lines": [
+    "はっきり言います。",
+    "増えた数字より",
+    "★そのあとのひと言★が大事"
+   ]
+  },
+  {
+   "kind": "list",
+   "photo": "photo/p15_tulips_chair.jpg",
+   "seconds": 5.2,
+   "title": "増えた朝にしてほしいこと3つ",
+   "items": [
+    "① 数字は、そのまま記録する",
+    "② 前の日の「気持ち」を1行書く",
+    "③ 自分に「教えてくれてありがとう」"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "photo/p13_shelf_lamp_plants.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "いちばん大事なのは③",
+    "★「教えてくれて★",
+    "★ありがとう」★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "photo/p14_tulips_books.jpg",
+   "seconds": 2.8,
+   "blur": 7,
+   "lines": [
+    "数字は、責める材料ではなく",
+    "★心と体からの★",
+    "★お知らせ★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "photo/p10_cup_white_tulips.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "毎日記録を続けているあなたは",
+    "★もう十分★",
+    "★がんばっている★"
+   ]
+  },
+  {
+   "kind": "end",
+   "photo": "photo/p02_breakfast_plate.jpg",
+   "seconds": 3.4,
+   "lines": [
+    "心と体を整える",
+    "★耳ツボダイエット★",
+    "本気で変わりたいなら",
+    "公式LINEで無料プレゼント中",
+    "プロフィールのリンクから"
+   ]
+  }
+ ]
+}
