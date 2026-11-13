@@ -56,18 +56,21 @@ function slideHtml(s, stage) {
 
 function coverHtml(c) {
   const img = 'file://' + path.join(dir, c.photo);
+  // プロフィール一覧に合わせたデザイン（2026/11/13 さやかさんの一覧画面より）：
+  // 写真に淡いピンクベージュのベール／1行ずつ角丸の淡い箱／小さい前振り＝茶色、大きい言葉＝くすみピンク、補足＝白い小箱
+  const bigLines = c.big.split('\n').map((l) => `<div class="bx b">${esc(l)}</div>`).join('');
   return `<style>
   .bg{position:absolute;inset:0;background:url('${img}') center/cover}
-  .veil{position:absolute;inset:0;background:rgba(251,246,238,.30)}
-  .cw{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center}
-  .cb{background:rgba(252,248,240,.92);border-radius:40px;padding:50px 56px;text-align:center;max-width:960px;box-shadow:0 10px 40px rgba(60,40,30,.18)}
-  .s{font-family:'Zen Maru Gothic';font-weight:700;font-size:50px;color:#5C4C4A}
-  .b{font-family:'Zen Maru Gothic';font-weight:700;font-size:94px;line-height:1.25;color:#A9844B;margin:18px 0;white-space:pre-line}
-  .u{font-family:'Zen Maru Gothic';font-weight:700;font-size:46px;color:#5C4C4A;border-top:3px solid #D9C8A8;padding-top:18px;display:inline-block}
-  .cf{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-family:'Zen Maru Gothic';font-weight:700;font-size:30px;color:#5C4C4A}
-  .cf span{background:rgba(252,248,240,.9);padding:8px 24px;border-radius:20px}
+  .veil{position:absolute;inset:0;background:rgba(246,232,228,.38)}
+  .cw{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:16px}
+  .bx{font-family:'Zen Maru Gothic';font-weight:700;border-radius:14px;padding:10px 30px;white-space:nowrap}
+  .s{font-size:50px;color:#5C4C4A;background:rgba(250,242,238,.90)}
+  .b{font-size:96px;line-height:1.2;color:#BE8280;background:rgba(250,240,237,.90);padding:14px 36px}
+  .u{font-size:38px;color:#5C4C4A;background:rgba(255,255,255,.88);padding:8px 26px;margin-top:6px}
+  .cf{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-family:'Zen Maru Gothic';font-weight:700;font-size:28px;color:#5C4C4A}
+  .cf span{background:rgba(250,242,238,.9);padding:6px 22px;border-radius:12px}
   </style><div class="bg"></div><div class="veil"></div>
-  <div class="cw"><div class="cb"><div class="s">${esc(c.small)}</div><div class="b">${esc(c.big)}</div><div class="u">${esc(c.sub)}</div></div></div>
+  <div class="cw"><div class="bx s">${esc(c.small)}</div>${bigLines}<div class="bx u">${esc(c.sub)}</div></div>
   <div class="cf"><span>${esc(spec.footer)}</span></div>`;
 }
 
