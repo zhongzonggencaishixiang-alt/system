@@ -21,13 +21,17 @@ html,body{width:1080px;height:1920px}
 .wrap{position:absolute;left:70px;right:70px;top:260px;bottom:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
       font-family:'Zen Maru Gothic';font-weight:700;color:#5C4C4A;text-align:center}
 .tag{font-size:40px;background:rgba(250,242,238,.92);border-radius:14px;padding:10px 30px}
-.title{font-size:96px;color:#BE8280;background:rgba(250,240,237,.92);border-radius:14px;padding:14px 40px;line-height:1.25}
+.title{font-size:78px;color:#BE8280;background:rgba(250,240,237,.92);border-radius:14px;padding:14px 40px;line-height:1.25}
 .card{background:rgba(255,255,255,.92);border-radius:28px;padding:46px 50px;width:100%;box-shadow:0 10px 36px rgba(92,76,74,.15);display:flex;flex-direction:column;gap:22px}
 .q{font-size:50px;line-height:1.6;color:#5C4C4A}
 .q .mark{color:#BE8280}
-.hl{font-size:66px;color:#BE8280;line-height:1.4}
+.hl{font-size:56px;color:#BE8280;line-height:1.4}
 .sub{font-size:36px;line-height:1.6}
 .note{font-size:26px;color:#7A6A68;line-height:1.5}
+.img{width:100%;border-radius:20px;box-shadow:0 10px 30px rgba(92,76,74,.18);display:block}
+.cta{font-size:46px;color:#fff;background:#B87876;border-radius:28px;padding:30px 40px;line-height:1.5;width:100%}
+.lines{font-size:42px;line-height:1.6;text-align:left;display:flex;flex-direction:column;gap:18px}
+.lines b{color:#BE8280}
 .space{height:200px;width:100%;border:3px dashed rgba(190,130,128,.6);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#BE8280;background:rgba(255,255,255,.5)}
 .foot{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-family:'Zen Maru Gothic';font-weight:700;font-size:28px;color:#5C4C4A}
 .foot span{background:rgba(250,242,238,.9);padding:6px 22px;border-radius:12px}
@@ -42,6 +46,9 @@ function block(b) {
     case 'hl': return `<div class="hl">${br(b.text)}</div>`;
     case 'sub': return `<div class="sub">${br(b.text)}</div>`;
     case 'note': return `<div class="note">${br(b.text)}</div>`;
+    case 'img': return `<img class="img" src="file://${path.join(dir, b.src)}">`;
+    case 'cta': return `<div class="cta">${br(b.text)}</div>`;
+    case 'lines': return `<div class="lines">${b.items.map((x) => '<div>' + br(x).replace(/\*([^*]+)\*/g, '<b>$1</b>') + '</div>').join('')}</div>`;
     case 'space': return `<div class="space">${br(b.text)}</div>`;
   }
   return '';
@@ -52,11 +59,13 @@ function block(b) {
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
   for (let i = 0; i < spec.frames.length; i++) {
     const f = spec.frames[i];
-    const img = 'file://' + path.join(dir, f.photo);
     const blur = f.blur ? `filter:blur(${f.blur}px);transform:scale(1.05);` : '';
-    const body = `<div class="bg" style="background-image:url('${img}');${blur}"></div><div class="veil"></div>
+    const bgDiv = f.photo
+      ? `<div class="bg" style="background-image:url('file://${path.join(dir, f.photo)}');${blur}"></div><div class="veil"></div>`
+      : `<div class="bg" style="background:#F6EEEA"></div>`;
+    const body = `${bgDiv}
       <div class="wrap">${f.blocks.map(block).join('')}</div>
-      <div class="foot"><span>${esc(spec.footer)}</span></div>`;
+      ${spec.footer ? `<div class="foot"><span>${esc(spec.footer)}</span></div>` : ''}`;
     const html = path.join(dir, '_story.html');
     fs.writeFileSync(html, `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${body}</body></html>`);
     await page.goto('file://' + html, { waitUntil: 'load' });
