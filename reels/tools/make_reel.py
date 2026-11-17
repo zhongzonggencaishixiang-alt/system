@@ -7,7 +7,7 @@
 見せ方（資料タブ⑦ sales_flow 11/5）：
   pop  = 文字がポンと出る（1枚目）／neg = 写真をさらに暗く・文字が少し揺れる
   pos  = 写真がゆっくり大きくなる・文字がふわっと出る（強調は金色）／list = 白い箱に1つずつ出る
-写真の暗さ：ふつう26%・neg 42%・pos 30%（1枚目とカバーは明るいまま）
+写真の暗さ（11/17に明るく変更）：neg 28%・pos 14%・list 10%・end 14%（1枚目とカバーは明るいまま）
 """
 import json
 import subprocess
@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 W, H, FPS, XF = 1080, 1920, 30, 0.3
-DARK = {"pop": 0.0, "neg": 0.42, "pos": 0.30, "list": 0.26, "end": 0.30}
+DARK = {"pop": 0.0, "neg": 0.28, "pos": 0.14, "list": 0.10, "end": 0.14}  # 2026/11/17 さやかさん「写真が暗い」→明るく
 ZOOM = {"pop": 0.03, "neg": 0.02, "pos": 0.08, "list": 0.03, "end": 0.05}
 
 

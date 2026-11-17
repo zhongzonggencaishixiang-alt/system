@@ -34,7 +34,7 @@ const base = `
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;background:transparent}
 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 70px}
-.pad{background:rgba(20,14,12,.22);border-radius:36px;padding:34px 46px;display:flex;flex-direction:column;align-items:center;gap:14px;
+.pad{background:rgba(20,14,12,.30);border-radius:36px;padding:34px 46px;display:flex;flex-direction:column;align-items:center;gap:14px;
      box-shadow:0 0 60px 30px rgba(20,14,12,.14)}
 .line{font-family:Kaze;font-size:64px;line-height:1.35;color:#fff;text-align:center;
       text-shadow:0 3px 10px rgba(0,0,0,.35),0 0 3px rgba(0,0,0,.35);letter-spacing:.02em;white-space:nowrap}
