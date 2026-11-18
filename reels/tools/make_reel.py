@@ -8,6 +8,7 @@
   pop  = 文字がポンと出る（1枚目）／neg = 写真をさらに暗く・文字が少し揺れる
   pos  = 写真がゆっくり大きくなる・文字がふわっと出る（強調は金色）／list = 白い箱に1つずつ出る
 写真の暗さ（11/17に明るく変更）：neg 28%・pos 14%・list 10%・end 14%（1枚目とカバーは明るいまま）
+  1枚ごとに "dark": 0.05 のように指定もできる（手書きカードを暗くしたくない時など）
 """
 import json
 import subprocess
@@ -23,8 +24,8 @@ def run(cmd):
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
 
 
-def bg_filter(kind, dur, blur):
-    k = 1 - DARK[kind]
+def bg_filter(kind, dur, blur, dark=None):
+    k = 1 - (DARK[kind] if dark is None else dark)
     z = ZOOM[kind]
     f = [f"scale={W}:{H}:force_original_aspect_ratio=increase", f"crop={W}:{H}"]
     if blur:
@@ -44,7 +45,7 @@ def clip(src_dir, build, n, s):
     photo = src_dir / s["photo"]
     kind = s["kind"]
     inputs = ["-loop", "1", "-t", str(dur), "-i", str(photo)]
-    fc = [f"[0:v]fps={FPS},{bg_filter(kind, dur, s.get('blur'))}[bg]"]
+    fc = [f"[0:v]fps={FPS},{bg_filter(kind, dur, s.get('blur'), s.get('dark'))}[bg]"]
     if kind == "list":
         stages = sorted(build.glob(f"ov_{n:02d}_*.png"))
         step = (dur - 0.6) / (len(stages) - 1)
