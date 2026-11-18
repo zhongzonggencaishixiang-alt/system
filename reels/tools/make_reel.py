@@ -6,6 +6,7 @@
 手順：1) render_overlays.js で文字PNGとカバーを書き出す  2) 1枚ずつ動画にする  3) 0.3秒のふわっと切りかえでつなぐ
 見せ方（資料タブ⑦ sales_flow 11/5）：
   pop  = 文字がポンと出る（1枚目）／neg = 写真をさらに暗く・文字が少し揺れる
+  gift = 最後の画面（公式LINEプレゼントの表紙・11/18〜すべてのダイエットリールの最後）
   pos  = 写真がゆっくり大きくなる・文字がふわっと出る（強調は金色）／list = 白い箱に1つずつ出る
 写真の暗さ（11/17に明るく変更）：neg 28%・pos 14%・list 10%・end 14%（1枚目とカバーは明るいまま）
   1枚ごとに "dark": 0.05 のように指定もできる（手書きカードを暗くしたくない時など）
@@ -16,8 +17,8 @@ import sys
 from pathlib import Path
 
 W, H, FPS, XF = 1080, 1920, 30, 0.3
-DARK = {"pop": 0.0, "neg": 0.28, "pos": 0.14, "list": 0.10, "end": 0.14}  # 2026/11/17 さやかさん「写真が暗い」→明るく
-ZOOM = {"pop": 0.03, "neg": 0.02, "pos": 0.08, "list": 0.03, "end": 0.05}
+DARK = {"pop": 0.0, "neg": 0.28, "pos": 0.14, "list": 0.10, "end": 0.14, "gift": 0.22}  # 2026/11/17 さやかさん「写真が暗い」→明るく
+ZOOM = {"pop": 0.03, "neg": 0.02, "pos": 0.08, "list": 0.03, "end": 0.05, "gift": 0.04}
 
 
 def run(cmd):
@@ -64,7 +65,7 @@ def clip(src_dir, build, n, s):
             fc.append("[bg][ov]overlay=x='(W-w)/2':y='(H-h)/2':eval=frame,format=yuv420p[v]")
         elif kind == "neg":
             fc.append("[bg][1:v]overlay=x='5*sin(2*PI*5*t)':y='2*sin(2*PI*7*t)':eval=frame,format=yuv420p[v]")
-        else:  # pos / end
+        else:  # pos / end / gift
             fc.append("[1:v]format=rgba,fade=t=in:st=0:d=0.45:alpha=1[ov]")
             fc.append("[bg][ov]overlay=0:0,format=yuv420p[v]")
     run(["ffmpeg", "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[v]",
