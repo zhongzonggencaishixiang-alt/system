@@ -16,11 +16,14 @@ const F = 'file://' + path.join(__dirname, 'fonts');
 //   diet = @bonheur12101111：大きい言葉はくすみピンク／下の文字「bonheur ／ 潜在意識ダイエット」
 //   hikiyose = @sayaka_hikiyose：大きい言葉は金茶／下の文字「さやか ／ 頑張らない引き寄せ」
 const THEMES = {
-  diet: { big: '#BE8280', footer: 'bonheur ／ 潜在意識ダイエット' },
+  diet: { big: '#BE8280', footer: 'bonheur ／ 潜在意識ダイエット', label: '沖縄うるま市 耳ツボダイエット' },
   hikiyose: { big: '#B08A3E', footer: 'さやか ／ 頑張らない引き寄せ' },
 };
 const theme = THEMES[spec.account] || THEMES.diet;
 spec.footer = spec.footer || theme.footer;
+// 地名ラベル：どの場面でも同じ位置に出す（2026/11/19 さやかさん指定・「宜野湾市ダイエット」のような箱）
+// spec.label で変更、null で消す。gift（最後の画面）には出さない
+const label = spec.label === undefined ? theme.label : spec.label;
 
 const fontCss = `
 @import url('${F}/noto-serif-jp/900.css');
@@ -49,6 +52,9 @@ html,body{width:1080px;height:1920px;background:transparent}
 .box .t{font-family:'Noto Serif JP';font-weight:900;font-size:62px;color:#5C4C4A;text-align:center;margin-bottom:6px}
 .box .i{font-family:Kaze;font-size:52px;color:#4A3C3A;white-space:nowrap}
 .box .i.hide{visibility:hidden}
+.lbl{position:absolute;top:1330px;left:0;right:0;text-align:center}
+.lbl span{font-family:'Noto Serif JP';font-weight:900;font-size:58px;color:#3A2E2C;background:rgba(255,255,255,.86);padding:10px 36px;
+      box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .end .line{font-size:56px}.end .em{font-size:90px;color:#F1D08A}
 .gift{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:270px;gap:0}
 .gift .g1{font-family:Kaze;font-size:56px;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.45);white-space:nowrap}
@@ -58,7 +64,8 @@ html,body{width:1080px;height:1920px;background:transparent}
 `;
 
 function slideHtml(s, stage) {
-  const foot = `<div class="foot"><span>${esc(spec.footer)}</span></div>`;
+  const foot = `<div class="foot"><span>${esc(spec.footer)}</span></div>`
+    + (label && s.kind !== 'gift' ? `<div class="lbl"><span>${esc(label)}</span></div>` : '');
   if (s.kind === 'list') {
     const items = s.items.map((t, i) => `<div class="i ${i < stage ? '' : 'hide'}">${esc(t)}</div>`).join('');
     return `<div class="wrap"><div class="box"><div class="t">${esc(s.title)}</div>${items}</div></div>${foot}`;
