@@ -16,7 +16,7 @@ const F = 'file://' + path.join(__dirname, 'fonts');
 //   diet = @bonheur12101111：大きい言葉はくすみピンク／下の文字「bonheur ／ 潜在意識ダイエット」
 //   hikiyose = @sayaka_hikiyose：大きい言葉は金茶／下の文字「さやか ／ 頑張らない引き寄せ」
 const THEMES = {
-  diet: { big: '#BE8280', footer: 'bonheur ／ 潜在意識ダイエット', label: '沖縄うるま市 耳ツボダイエット' },
+  diet: { big: '#BE8280', footer: 'bonheur ／ 潜在意識ダイエット', label: 'うるま市ダイエット' },
   hikiyose: { big: '#B08A3E', footer: 'さやか ／ 頑張らない引き寄せ' },
 };
 const theme = THEMES[spec.account] || THEMES.diet;
@@ -53,7 +53,7 @@ html,body{width:1080px;height:1920px;background:transparent}
 .box .i{font-family:Kaze;font-size:52px;color:#4A3C3A;white-space:nowrap}
 .box .i.hide{visibility:hidden}
 .lbl{position:absolute;top:1330px;left:0;right:0;text-align:center}
-.lbl span{font-family:'Noto Serif JP';font-weight:900;font-size:58px;color:#3A2E2C;background:rgba(255,255,255,.86);padding:10px 36px;
+.lbl span{font-family:'Noto Serif JP';font-weight:900;font-size:66px;color:#3A2E2C;background:rgba(255,255,255,.86);padding:10px 36px;
       box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .end .line{font-size:56px}.end .em{font-size:90px;color:#F1D08A}
 .gift{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:270px;gap:0}
