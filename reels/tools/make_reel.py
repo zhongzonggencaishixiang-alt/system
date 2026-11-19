@@ -45,7 +45,10 @@ def clip(src_dir, build, n, s):
     out = build / f"clip_{n:02d}.mp4"
     photo = src_dir / s["photo"]
     kind = s["kind"]
-    inputs = ["-loop", "1", "-t", str(dur), "-i", str(photo)]
+    if photo.suffix.lower() == ".mp4":  # 動く背景（動画）も使える
+        inputs = ["-stream_loop", "-1", "-t", str(dur), "-i", str(photo)]
+    else:
+        inputs = ["-loop", "1", "-t", str(dur), "-i", str(photo)]
     fc = [f"[0:v]fps={FPS},{bg_filter(kind, dur, s.get('blur'), s.get('dark'))}[bg]"]
     if kind == "list":
         stages = sorted(build.glob(f"ov_{n:02d}_*.png"))
@@ -87,7 +90,11 @@ def main():
     run(["ffmpeg", "-y", "-loop", "1", "-t", str(cdur), "-i", str(build / "cover.png"),
          "-vf", f"fps={FPS},scale={W}:{H},setsar=1,format=yuv420p", "-t", str(cdur),
          "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", str(cover_clip)])
-    clips = [(cover_clip, cdur)] + [clip(src, build, i + 1, s) for i, s in enumerate(spec["slides"])]
+    clips = [clip(src, build, i + 1, s) for i, s in enumerate(spec["slides"])]
+    # 11/19 の視聴維持グラフ：最初の2秒で6〜7割が離れていた → 動画の頭に止まったカバー画像を入れない
+    # （カバーは Instagram の「カバーを編集」でカバー画像を別に選ぶ）。"cover_in_video": true のときだけ頭に入れる
+    if spec.get("cover_in_video", False):
+        clips = [(cover_clip, cdur)] + clips
 
     # ふわっと切りかえ（xfade）でつなぐ
     inputs, fc, t, last = [], [], 0.0, "0:v"
