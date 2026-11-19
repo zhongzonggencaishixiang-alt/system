@@ -46,7 +46,7 @@ function block(b) {
     case 'hl': return `<div class="hl">${br(b.text)}</div>`;
     case 'sub': return `<div class="sub">${br(b.text)}</div>`;
     case 'note': return `<div class="note">${br(b.text)}</div>`;
-    case 'img': return `<img class="img" src="file://${path.join(dir, b.src)}">`;
+    case 'img': return `<img class="img" style="${b.w ? 'width:' + b.w + 'px' : ''}" src="file://${path.join(dir, b.src)}">`;
     case 'cta': return `<div class="cta">${br(b.text)}</div>`;
     case 'lines': return `<div class="lines">${b.items.map((x) => '<div>' + br(x).replace(/\*([^*]+)\*/g, '<b>$1</b>') + '</div>').join('')}</div>`;
     case 'space': return `<div class="space">${br(b.text)}</div>`;
