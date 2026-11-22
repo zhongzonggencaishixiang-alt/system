@@ -1,0 +1,116 @@
+{
+ "title": "40代が年末に太る前兆3選",
+ "account": "diet",
+ "cover": {
+  "photo": "../library/新_乾杯_手元.jpg",
+  "small": "沖縄うるま市 耳ツボダイエット",
+  "big": "40代が\n年末に太る前兆3選",
+  "sub": "③がいちばん気づきにくい",
+  "seconds": 0.6
+ },
+ "slides": [
+  {
+   "kind": "pop",
+   "photo": "../library/新_乾杯_手元.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "40代が",
+    "★年末に太る★",
+    "★前兆3選★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/自_チーズケーキ_抹茶.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "①",
+    "★「せっかくだから」★",
+    "が増えてきた"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_シリアル_牛乳.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "②",
+    "★寝る前のスマホと★",
+    "★お菓子★"
+   ]
+  },
+  {
+   "kind": "pop",
+   "photo": "../library/新_カーテン_窓_明.jpg",
+   "seconds": 2.2,
+   "lines": [
+    "そして③は",
+    "★いちばん★",
+    "★気づきにくい★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_黄チューリップ_本.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "③",
+    "★「年明けから★",
+    "★頑張る」★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_カップ_白チューリップ.jpg",
+   "seconds": 2.5,
+   "lines": [
+    "そう決めた瞬間、心は",
+    "★「今は食べていい」★",
+    "と受け取る"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_菜の花_ピンク空.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "夏休みの宿題を",
+    "★最後にまとめて★",
+    "★やるのと同じ★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/自_抹茶ラテ.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "年末こそ",
+    "★「今日の1回」を★",
+    "★大切にする★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_花束_オレンジ壁.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "我慢ではなく",
+    "★今日の自分を★",
+    "★満たすこと★"
+   ]
+  },
+  {
+   "kind": "gift",
+   "photo": "../library/自_ロゴ_キャンドル.jpg",
+   "blur": 10,
+   "seconds": 3.4,
+   "image": "../library/自_LINEプレゼント表紙.png",
+   "top": "公式LINEで無料プレゼント中",
+   "title": [
+    "おデブ脳を書き換える",
+    "魔法のステップ"
+   ],
+   "bottom": "プロフィールのリンクから"
+  }
+ ]
+}
