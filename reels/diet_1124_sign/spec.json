@@ -1,0 +1,102 @@
+{
+ "title": "体からのサインに気づいてあげて",
+ "account": "diet",
+ "cover": {
+  "photo": "../library/自_サロン_ランプ_花.jpg",
+  "small": "沖縄うるま市 耳ツボダイエット",
+  "big": "頑張りたくない\nでも体が心配",
+  "sub": "体からのサイン、見逃していませんか",
+  "seconds": 0.6
+ },
+ "slides": [
+  {
+   "kind": "pop",
+   "photo": "../library/自_サロン_ランプ_花.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "ダイエットは",
+    "★頑張りたくない★",
+    "その気持ち、わかります"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_寝室_窓_チューリップ.jpg",
+   "seconds": 2.2,
+   "lines": [
+    "でも、最近",
+    "★疲れやすくなった★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_シャボン玉_緑.jpg",
+   "seconds": 2.2,
+   "lines": [
+    "なんとなく",
+    "★体の調子が悪い★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_黄葉_木.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "病院の検査で",
+    "★引っかかった★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_カーテン_窓_明.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "頑張らなくてもいい",
+    "でも",
+    "★向き合わなきゃ★",
+    "★いけないこともある★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/自_サロン_ベッド.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "あなたの体は",
+    "★悲鳴をあげている★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_菜の花_ピンク空.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "★体からのサインに★",
+    "★気づいてあげて★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_黄チューリップ_花束_手元.jpg",
+   "seconds": 2.6,
+   "lines": [
+    "大きなことになる前に",
+    "★自分の体を★",
+    "★大事にしてあげて★"
+   ]
+  },
+  {
+   "kind": "gift",
+   "photo": "../library/自_ロゴ_キャンドル.jpg",
+   "blur": 10,
+   "seconds": 3.4,
+   "image": "../library/自_LINEプレゼント表紙.png",
+   "top": "公式LINEで無料プレゼント中",
+   "title": [
+    "おデブ脳を書き換える",
+    "魔法のステップ"
+   ],
+   "bottom": "プロフィールのリンクから"
+  }
+ ]
+}
