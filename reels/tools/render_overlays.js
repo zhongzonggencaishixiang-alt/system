@@ -56,11 +56,12 @@ html,body{width:1080px;height:1920px;background:transparent}
 .lbl span{font-family:'Noto Serif JP';font-weight:900;font-size:66px;color:#3A2E2C;background:rgba(255,255,255,.86);padding:10px 36px;
       box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .end .line{font-size:56px}.end .em{font-size:90px;color:#F1D08A}
-.gift{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:270px;gap:0}
+.gift{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:240px;gap:0}
 .gift .g1{font-family:Kaze;font-size:56px;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.45);white-space:nowrap}
 .gift .g2{font-family:'Noto Serif JP';font-weight:900;font-size:80px;line-height:1.25;color:#fff;text-align:center;text-shadow:0 3px 12px rgba(0,0,0,.45);margin-top:14px;white-space:nowrap}
-.gift img{width:500px;border:8px solid rgba(255,255,255,.95);box-shadow:0 14px 40px rgba(0,0,0,.35);margin-top:46px;display:block}
-.gift .g3{font-family:'Noto Serif JP';font-weight:900;font-size:72px;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.45);margin-top:44px;white-space:nowrap}
+.gift img{width:450px;border:8px solid rgba(255,255,255,.95);box-shadow:0 14px 40px rgba(0,0,0,.35);margin-top:46px;display:block}
+.gift .g3{font-family:'Noto Serif JP';font-weight:900;font-size:72px;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.45);margin-top:36px;white-space:nowrap}
+.gift .g4{font-family:Kaze;font-size:44px;color:#fff;background:rgba(184,120,118,.92);border-radius:40px;padding:12px 40px;margin-top:22px;white-space:nowrap}
 `;
 
 function slideHtml(s, stage) {
@@ -74,7 +75,8 @@ function slideHtml(s, stage) {
     // 公式LINEプレゼントの案内（2026/11/18 さやかさん指定の最後の画面）
     const img = 'file://' + path.join(dir, s.image);
     return `<div class="gift"><div class="g1">${esc(s.top)}</div><div class="g2">${s.title.map(esc).join('<br>')}</div>`
-      + `<img src="${img}"><div class="g3">${esc(s.bottom)}</div></div>${foot}`;
+      + `<img src="${img}"><div class="g3">${esc(s.bottom)}</div>`
+      + (s.note ? `<div class="g4">${esc(s.note)}</div>` : '') + `</div>${foot}`;
   }
   const lines = s.lines.map((l) => `<div class="line">${markup(l)}</div>`).join('');
   const cls = [s.kind, s.kind === 'pop' ? 'big' : ''].join(' ');
