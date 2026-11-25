@@ -11,7 +11,7 @@
  "slides": [
   {
    "kind": "pop",
-   "photo": "../library/新_黄チューリップ_花束_手元.jpg",
+   "photo": "../library/video/動画_05_飛行機の窓_空_36秒.mp4",
    "seconds": 2.2,
    "lines": [
     "40代・50代",
@@ -38,7 +38,7 @@
   },
   {
    "kind": "neg",
-   "photo": "../library/自_サロン_ランプ_花.jpg",
+   "photo": "../library/新_女性_後ろ姿_赤ワンピース.jpg",
    "seconds": 2.4,
    "lines": [
     "大きい病気じゃないから",
@@ -48,7 +48,7 @@
   },
   {
    "kind": "pos",
-   "photo": "../library/新_カーテン_窓_明.jpg",
+   "photo": "../library/video/動画_10_飛行機の窓_太陽_18秒.mp4",
    "seconds": 2.3,
    "lines": [
     "★きっと★",
@@ -57,7 +57,7 @@
   },
   {
    "kind": "neg",
-   "photo": "../library/新_紅茶_キーボード_ピンク袖.jpg",
+   "photo": "../library/新_親子_抱っこ_後ろ姿.jpg",
    "seconds": 2.3,
    "lines": [
     "ただ、今が",
@@ -75,7 +75,7 @@
   },
   {
    "kind": "pos",
-   "photo": "../library/新_菜の花_ピンク空.jpg",
+   "photo": "../library/video/動画_07_白い砂浜と波_10秒.mp4",
    "seconds": 2.5,
    "lines": [
     "でも",
@@ -85,7 +85,7 @@
   },
   {
    "kind": "pos",
-   "photo": "../library/自_夕日_海_ベランダ.jpg",
+   "photo": "../library/新_女性_ジャンプ_夕日.jpg",
    "seconds": 2.6,
    "lines": [
     "その余白ができたとき",
@@ -95,7 +95,7 @@
   },
   {
    "kind": "pos",
-   "photo": "../library/自_サロン_ハーブティー.jpg",
+   "photo": "../library/video/動画_12_サロン_キャンドル_7秒.mp4",
    "seconds": 2.6,
    "lines": [
     "ひとりで抱えなくていい",
