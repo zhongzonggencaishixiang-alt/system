@@ -17,8 +17,8 @@ import sys
 from pathlib import Path
 
 W, H, FPS, XF = 1080, 1920, 30, 0.3
-DARK = {"pop": 0.0, "neg": 0.28, "pos": 0.14, "list": 0.10, "end": 0.14, "gift": 0.22}  # 2026/11/17 さやかさん「写真が暗い」→明るく
-ZOOM = {"pop": 0.03, "neg": 0.02, "pos": 0.08, "list": 0.03, "end": 0.05, "gift": 0.04}
+DARK = {"pop": 0.0, "neg": 0.28, "pos": 0.14, "list": 0.10, "end": 0.14, "gift": 0.22, "plain": 0.0}  # 2026/11/17 さやかさん「写真が暗い」→明るく
+ZOOM = {"pop": 0.03, "neg": 0.02, "pos": 0.08, "list": 0.03, "end": 0.05, "gift": 0.04, "plain": 0.02}
 
 
 def run(cmd):
@@ -68,7 +68,7 @@ def clip(src_dir, build, n, s):
             fc.append("[bg][ov]overlay=x='(W-w)/2':y='(H-h)/2':eval=frame,format=yuv420p[v]")
         elif kind == "neg":
             fc.append("[bg][1:v]overlay=x='5*sin(2*PI*5*t)':y='2*sin(2*PI*7*t)':eval=frame,format=yuv420p[v]")
-        else:  # pos / end / gift
+        else:  # pos / end / gift / plain
             fc.append("[1:v]format=rgba,fade=t=in:st=0:d=0.45:alpha=1[ov]")
             fc.append("[bg][ov]overlay=0:0,format=yuv420p[v]")
     run(["ffmpeg", "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[v]",

@@ -71,6 +71,7 @@ function slideHtml(s, stage) {
     const items = s.items.map((t, i) => `<div class="i ${i < stage ? '' : 'hide'}">${esc(t)}</div>`).join('');
     return `<div class="wrap"><div class="box"><div class="t">${esc(s.title)}</div>${items}</div></div>${foot}`;
   }
+  if (s.kind === 'plain') return foot;  // 画像に文字が入っているとき（数字のカードなど）
   if (s.kind === 'gift') {
     // 公式LINEプレゼントの案内（2026/11/18 さやかさん指定の最後の画面）
     const img = 'file://' + path.join(dir, s.image);

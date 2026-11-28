@@ -32,6 +32,12 @@ html,body{width:1080px;height:1920px}
 .cta{font-size:46px;color:#fff;background:#B87876;border-radius:28px;padding:30px 40px;line-height:1.5;width:100%}
 .lines{font-size:42px;line-height:1.6;text-align:left;display:flex;flex-direction:column;gap:18px}
 .lines b{color:#BE8280}
+.nums{width:100%;display:flex;flex-direction:column;gap:18px}
+.nums .r{display:flex;align-items:center;justify-content:space-between;font-size:40px;color:#5C4C4A;border-bottom:2px dashed rgba(190,130,128,.35);padding-bottom:14px}
+.nums .r:last-child{border-bottom:none;padding-bottom:0}
+.nums .k{width:150px;text-align:left;font-size:36px;color:#7A6A68}
+.nums .v{flex:1;text-align:center}
+.nums .d{background:#BE8280;color:#fff;border-radius:14px;padding:6px 20px;font-size:44px}
 .space{height:200px;width:100%;border:3px dashed rgba(190,130,128,.6);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#BE8280;background:rgba(255,255,255,.5)}
 .foot{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-family:'Zen Maru Gothic';font-weight:700;font-size:28px;color:#5C4C4A}
 .foot span{background:rgba(250,242,238,.9);padding:6px 22px;border-radius:12px}
@@ -49,6 +55,8 @@ function block(b) {
     case 'img': return `<img class="img" style="${b.w ? 'width:' + b.w + 'px' : ''}" src="file://${path.join(dir, b.src)}">`;
     case 'cta': return `<div class="cta">${br(b.text)}</div>`;
     case 'lines': return `<div class="lines">${b.items.map((x) => '<div>' + br(x).replace(/\*([^*]+)\*/g, '<b>$1</b>') + '</div>').join('')}</div>`;
+    case 'nums': return `<div class="nums">${b.rows.map((r) => `<div class="r"><span class="k">${esc(r[0])}</span><span class="v">${esc(r[1])}</span><span class="d">${esc(r[2])}</span></div>`).join('')}</div>`;
+    case 'gap': return `<div style="height:${b.h || 200}px"></div>`;
     case 'space': return `<div class="space">${br(b.text)}</div>`;
   }
   return '';

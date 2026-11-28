@@ -39,42 +39,9 @@
    ]
   },
   {
-   "kind": "pos",
-   "photo": "photo/d_before_after.jpg",
-   "dark": 0.05,
-   "seconds": 2.8,
-   "lines": [
-    "3か月で",
-    "★−10.7kg・−10cm★"
-   ]
-  },
-  {
-   "kind": "pos",
-   "photo": "photo/d_voice.jpg",
-   "dark": 0.05,
-   "seconds": 2.4,
-   "lines": [
-    "★「まさかこんなに★",
-    "★落ちるとは！」★"
-   ]
-  },
-  {
-   "kind": "pos",
-   "photo": "../library/新_ジーンズ_ボタン.jpg",
-   "seconds": 2.3,
-   "lines": [
-    "昔のお洋服が",
-    "★入った★"
-   ]
-  },
-  {
-   "kind": "pos",
-   "photo": "../library/新_黄チューリップ_花束_手元.jpg",
-   "seconds": 2.3,
-   "lines": [
-    "★お医者様も★",
-    "★びっくり★"
-   ]
+   "kind": "plain",
+   "photo": "photo/d_card.png",
+   "seconds": 4.2
   },
   {
    "kind": "pos",
