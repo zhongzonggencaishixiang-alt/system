@@ -1,0 +1,115 @@
+{
+ "title": "お医者様に体重を落としてと言われて（お客様の声D）",
+ "account": "diet",
+ "cover": {
+  "photo": "../library/自_サロン_ベッド.jpg",
+  "small": "沖縄うるま市 耳ツボダイエット",
+  "big": "お医者様に\n「体重を落として」",
+  "sub": "3か月後、お医者様もびっくり",
+  "seconds": 0.6
+ },
+ "slides": [
+  {
+   "kind": "pop",
+   "photo": "../library/自_サロン_ランプ_花.jpg",
+   "seconds": 2.4,
+   "lines": [
+    "お医者様に",
+    "★「体重を落として★",
+    "★ください」★"
+   ]
+  },
+  {
+   "kind": "neg",
+   "photo": "../library/新_足元_ベージュ.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "膝の手術を前に",
+    "★「痩せなきゃ」★",
+    "でも、どうしたら…"
+   ]
+  },
+  {
+   "kind": "pop",
+   "photo": "../library/自_サロン_ベッド.jpg",
+   "seconds": 2.2,
+   "lines": [
+    "駆け込んだのは",
+    "★耳ツボダイエット★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "photo/d_before_after.jpg",
+   "dark": 0.05,
+   "seconds": 2.8,
+   "lines": [
+    "3か月で",
+    "★−10.7kg・−10cm★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "photo/d_voice.jpg",
+   "dark": 0.05,
+   "seconds": 2.4,
+   "lines": [
+    "★「まさかこんなに★",
+    "★落ちるとは！」★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_ジーンズ_ボタン.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "昔のお洋服が",
+    "★入った★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/新_黄チューリップ_花束_手元.jpg",
+   "seconds": 2.3,
+   "lines": [
+    "★お医者様も★",
+    "★びっくり★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/video/動画_04_飛行機の窓_島と海_23秒.mp4",
+   "seconds": 2.6,
+   "lines": [
+    "頑張るダイエットではなく",
+    "★心と身体をいたわる★",
+    "★耳ツボダイエット★"
+   ]
+  },
+  {
+   "kind": "pos",
+   "photo": "../library/video/動画_12_サロン_キャンドル_7秒.mp4",
+   "seconds": 2.6,
+   "lines": [
+    "ひとりで抱えなくていい",
+    "耳ツボでゆるみながら",
+    "★一緒に整えて★",
+    "★いきませんか★"
+   ]
+  },
+  {
+   "kind": "gift",
+   "photo": "../library/自_ロゴ_キャンドル.jpg",
+   "blur": 10,
+   "seconds": 3.4,
+   "image": "../library/自_LINEプレゼント表紙.png",
+   "top": "公式LINEで無料プレゼント中",
+   "title": [
+    "おデブ脳を書き換える",
+    "魔法のステップ"
+   ],
+   "bottom": "プロフィールのリンクから",
+   "note": "コメントに「ステップ」でも受け取れます"
+  }
+ ]
+}
